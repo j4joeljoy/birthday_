@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday! 💗</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Dancing+Script:wght@400;600;700&family=Great+Vibes&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ==================== INTRO OVERLAY ==================== -->
+    <div id="intro-overlay" class="intro-overlay">
+        <div class="countdown-container">
+            <p class="countdown-text">Something special is coming...</p>
+            <div class="countdown-number" id="countdown-num">3</div>
+        </div>
+    </div>
+
+    <!-- ==================== CUSTOM CURSOR (desktop only) ==================== -->
+    <div id="cursor-dot" class="cursor-dot"></div>
+
+    <!-- ==================== MUSIC TOGGLE ==================== -->
+    <button id="music-btn" class="music-toggle" title="Toggle Music">
+        <span class="music-icon" id="music-icon">🎵</span>
+    </button>
+
+    <!-- Background Audio -->
+    <!-- CUSTOMIZE: Replace with your own music file -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="assets/music/birthday-music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- ==================== SURPRISE MESSAGE BUTTON ==================== -->
+    <button id="surprise-msg-btn" class="surprise-float-btn" title="A little surprise!">🎁</button>
+    <div id="surprise-popup" class="surprise-popup">
+        <p id="surprise-text"></p>
+        <button class="popup-close" onclick="closeSurprisePopup()">💗</button>
+    </div>
+
+    <!-- ==================== PAGE 1: WELCOME ==================== -->
+    <section id="page-welcome" class="page active">
+        <div class="page-inner welcome-inner">
+
+            <!-- Animated Balloons -->
+            <div class="balloons-container">
+                <div class="balloon" style="--i:1; --color:#FFB6C1;">
+                    <div class="balloon-string"></div>
+                </div>
+                <div class="balloon" style="--i:2; --color:#E6E6FA;">
+                    <div class="balloon-string"></div>
+                </div>
+                <div class="balloon" style="--i:3; --color:#FFDAB9;">
+                    <div class="balloon-string"></div>
+                </div>
+                <div class="balloon" style="--i:4; --color:#DDA0DD;">
+                    <div class="balloon-string"></div>
+                </div>
+                <div class="balloon" style="--i:5; --color:#FFE4E1;">
+                    <div class="balloon-string"></div>
+                </div>
+                <div class="balloon" style="--i:6; --color:#FFB6C1;">
+                    <div class="balloon-string"></div>
+                </div>
+                <div class="balloon" style="--i:7; --color:#E6E6FA;">
+                    <div class="balloon-string"></div>
+                </div>
+            </div>
+
+            <!-- Floating Hearts & Stars -->
+            <div class="floating-emojis">
+                <span class="float-emoji" style="--i:1; --x:10%;">💗</span>
+                <span class="float-emoji" style="--i:2; --x:25%;">✨</span>
+                <span class="float-emoji" style="--i:3; --x:40%;">⭐</span>
+                <span class="float-emoji" style="--i:4; --x:55%;">💖</span>
+                <span class="float-emoji" style="--i:5; --x:70%;">🌟</span>
+                <span class="float-emoji" style="--i:6; --x:85%;">💕</span>
+                <span class="float-emoji" style="--i:7; --x:15%;">✨</span>
+                <span class="float-emoji" style="--i:8; --x:60%;">💗</span>
+                <span class="float-emoji" style="--i:9; --x:80%;">⭐</span>
+                <span class="float-emoji" style="--i:10; --x:35%;">💖</span>
+            </div>
+
+            <!-- Sparkle overlay -->
+            <div class="sparkle-overlay">
+                <span class="sparkle" style="--i:1;"></span>
+                <span class="sparkle" style="--i:2;"></span>
+                <span class="sparkle" style="--i:3;"></span>
+                <span class="sparkle" style="--i:4;"></span>
+                <span class="sparkle" style="--i:5;"></span>
+                <span class="sparkle" style="--i:6;"></span>
+            </div>
+
+            <div class="welcome-content">
+                <div class="birthday-date-badge">🎂 November 19th ✨</div>
+                <h1 class="welcome-title">
+                    <span class="title-line line-1">Heyyy,</span>
+                    <span class="title-line line-2">Birthday Girl! 💗</span>
+                </h1>
+                <p class="welcome-subtitle">November 19th is ALL about you ✨</p>
+                <p class="welcome-message">
+                    Someone has prepared a little birthday world just for you.<br>
+                    Are you ready to explore it?
+                </p>
+
+                <!-- CSS Birthday Cake -->
+                <div class="cake-wrapper">
+                    <div class="cake">
+                        <div class="candle-row">
+                            <div class="candle">
+                                <div class="flame"></div>
+                            </div>
+                            <div class="candle">
+                                <div class="flame"></div>
+                            </div>
+                            <div class="candle">
+                                <div class="flame"></div>
+                            </div>
+                        </div>
+                        <div class="frosting frosting-top"></div>
+                        <div class="cake-layer cake-top"></div>
+                        <div class="frosting frosting-mid"></div>
+                        <div class="cake-layer cake-mid"></div>
+                        <div class="frosting frosting-bot"></div>
+                        <div class="cake-layer cake-bot"></div>
+                        <div class="cake-plate"></div>
+                    </div>
+                </div>
+
+                <button class="btn-primary btn-glow" id="btn-open-surprise">
+                    Open Your Surprise ✨
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PAGE 2: NICKNAME ==================== -->
+    <section id="page-nickname" class="page">
+        <div class="page-inner nickname-inner">
+            <div class="nickname-card">
+                <div class="lock-icon" id="lock-icon">🔒</div>
+                <h2 class="section-title">Wait a second...</h2>
+                <p class="nickname-prompt">Before we continue...<br>tell me what I call you? 👀💗</p>
+
+                <div class="input-group">
+                    <div class="input-hearts-wrap">
+                        <span class="orbit-heart" style="--i:1;">💗</span>
+                        <span class="orbit-heart" style="--i:2;">💕</span>
+                        <span class="orbit-heart" style="--i:3;">💖</span>
+                        <span class="orbit-heart" style="--i:4;">💗</span>
+                    </div>
+                    <input type="text" id="nickname-input" class="cute-input" placeholder="Type the secret nickname..."
+                        autocomplete="off" spellcheck="false">
+                </div>
+
+                <p id="nickname-error" class="error-msg"></p>
+
+                <button class="btn-primary" id="nickname-submit">Unlock the Magic ✨</button>
+
+                <p class="hint-text">Hint: It's the cute name I always call you 😉</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PAGE 3: PHOTO SURPRISE ==================== -->
+    <section id="page-photos" class="page">
+        <div class="page-inner photos-inner">
+            <h2 class="section-title fancy-title photo-title">
+                Look who's making the whole<br>world beautiful today! 💗
+            </h2>
+
+            <div id="floating-photos" class="floating-photos-container">
+                <!-- Generated dynamically from CONFIG.surprisePhotos -->
+            </div>
+
+            <!-- Butterflies -->
+            <div class="butterflies-wrap">
+                <span class="butterfly" style="--i:1;">🦋</span>
+                <span class="butterfly" style="--i:2;">🦋</span>
+                <span class="butterfly" style="--i:3;">🦋</span>
+                <span class="butterfly" style="--i:4;">🦋</span>
+                <span class="butterfly" style="--i:5;">🦋</span>
+            </div>
+
+            <button class="btn-primary btn-glow photos-next-btn" id="photos-next-btn">
+                See Our Memories 📸
+            </button>
+        </div>
+    </section>
+
+    <!-- ==================== PAGE 4: MEMORIES GALLERY ==================== -->
+    <section id="page-gallery" class="page">
+        <div class="page-inner gallery-inner">
+            <h2 class="section-title fancy-title">Our Memory Book 📖</h2>
+            <p class="section-subtitle">Every picture tells our story...</p>
+
+            <div id="gallery-grid" class="gallery-grid">
+                <!-- Generated dynamically from CONFIG.memories -->
+            </div>
+
+            <button class="btn-primary btn-glow gallery-next-btn" id="gallery-next-btn">
+                I Have Something To Say 💌
+            </button>
+        </div>
+    </section>
+
+    <!-- ==================== PAGE 5: PERSONAL LETTER ==================== -->
+    <section id="page-letter" class="page">
+        <div class="page-inner letter-inner">
+            <h2 class="section-title fancy-title letter-heading">
+                Something I've always<br>wanted to tell you...
+            </h2>
+
+            <div class="envelope-scene">
+                <div id="envelope" class="envelope" title="Click to open 💌">
+                    <div class="envelope-back"></div>
+                    <div class="envelope-front">
+                        <span class="envelope-label">💌 Click to Open</span>
+                    </div>
+                    <div class="envelope-flap"></div>
+                </div>
+            </div>
+
+            <div id="letter-container" class="letter-container hidden">
+                <div class="letter-paper">
+                    <div class="letter-deco letter-deco-tl">🌸</div>
+                    <div class="letter-deco letter-deco-tr">🌷</div>
+                    <div class="letter-deco letter-deco-bl">💐</div>
+                    <div class="letter-deco letter-deco-br">🌺</div>
+
+                    <p class="letter-greeting">Dear Birthday Girl,</p>
+                    <div id="letter-body" class="letter-body">
+                        <!-- Content loaded from CONFIG.letterContent -->
+                    </div>
+                    <div class="letter-sign-off">
+                        <p>With all my love,</p>
+                        <!-- CUSTOMIZE: Replace with your name -->
+                        <p class="letter-signature" id="letter-signature">Your Best Friend 💗</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn-primary btn-glow letter-next-btn hidden" id="letter-next-btn">
+                One More Thing... 🎂
+            </button>
+        </div>
+    </section>
+
+    <!-- ==================== PAGE 6: THREE WISHES ==================== -->
+    <section id="page-wishes" class="page">
+        <div class="page-inner wishes-inner">
+            <h2 class="section-title fancy-title">
+                Okay Birthday Girl!<br>It's your turn now! 🎂
+            </h2>
+            <p class="section-subtitle wishes-subtitle">
+                You get to make <strong>THREE</strong> special wishes on November 19th ✨<br>
+                And I want to know all of them!
+            </p>
+
+            <form id="wishes-form" class="wishes-form" onsubmit="return false;">
+                <div class="wish-field" style="--i:1;">
+                    <label for="wish-1">Your first wish ✨</label>
+                    <input type="text" id="wish-1" class="wish-input" placeholder="I wish for..." autocomplete="off">
+                    <div class="wish-sparkle">✨</div>
+                </div>
+                <div class="wish-field" style="--i:2;">
+                    <label for="wish-2">Your second wish 🌷</label>
+                    <input type="text" id="wish-2" class="wish-input" placeholder="I wish for..." autocomplete="off">
+                    <div class="wish-sparkle">🌷</div>
+                </div>
+                <div class="wish-field" style="--i:3;">
+                    <label for="wish-3">Your third wish 💗</label>
+                    <input type="text" id="wish-3" class="wish-input" placeholder="I wish for..." autocomplete="off">
+                    <div class="wish-sparkle">💗</div>
+                </div>
+
+                <p id="wish-error" class="error-msg"></p>
+
+                <button type="button" class="btn-primary btn-glow" id="wish-submit">
+                    Make My Wishes ✨
+                </button>
+            </form>
+
+            <div id="wish-confirmation" class="wish-confirmation hidden">
+                <div class="wish-stars-anim">✨ 🌟 ⭐ 🌟 ✨</div>
+                <h3>Your wishes have been sent<br>to the universe! 🌌</h3>
+                <p class="wish-confirm-sub">May every single one come true 💗</p>
+
+                <button class="btn-primary btn-glow" id="wish-next-btn">
+                    See Your Final Surprise 🎁
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PAGE 7: FINALE ==================== -->
+    <section id="page-finale" class="page">
+        <div class="page-inner finale-inner">
+
+            <!-- Confetti Canvas -->
+            <canvas id="confetti-canvas"></canvas>
+
+            <!-- Floating balloons -->
+            <div class="balloons-container finale-balloons">
+                <div class="balloon" style="--i:1; --color:#FFB6C1;">
+                    <div class="balloon-string"></div>
+                </div>
+                <div class="balloon" style="--i:2; --color:#E6E6FA;">
+                    <div class="balloon-string"></div>
+                </div>
+                <div class="balloon" style="--i:3; --color:#FFDAB9;">
+                    <div class="balloon-string"></div>
+                </div>
+                <div class="balloon" style="--i:4; --color:#DDA0DD;">
+                    <div class="balloon-string"></div>
+                </div>
+                <div class="balloon" style="--i:5; --color:#FFE4E1;">
+                    <div class="balloon-string"></div>
+                </div>
+            </div>
+
+            <!-- Finale Cake -->
+            <div class="finale-cake-wrap">
+                <div class="cake big-cake">
+                    <div class="candle-row">
+                        <div class="candle big-candle">
+                            <div class="flame big-flame"></div>
+                        </div>
+                        <div class="candle big-candle">
+                            <div class="flame big-flame"></div>
+                        </div>
+                        <div class="candle big-candle">
+                            <div class="flame big-flame"></div>
+                        </div>
+                        <div class="candle big-candle">
+                            <div class="flame big-flame"></div>
+                        </div>
+                        <div class="candle big-candle">
+                            <div class="flame big-flame"></div>
+                        </div>
+                    </div>
+                    <div class="frosting frosting-top big-frosting"></div>
+                    <div class="cake-layer cake-top big-layer"></div>
+                    <div class="frosting frosting-mid big-frosting"></div>
+                    <div class="cake-layer cake-mid big-layer"></div>
+                    <div class="frosting frosting-bot big-frosting"></div>
+                    <div class="cake-layer cake-bot big-layer"></div>
+                    <div class="cake-plate big-plate"></div>
+                    <!-- Sprinkles -->
+                    <div class="sprinkles">
+                        <span class="sprinkle" style="--x:20%; --y:35%; --color:#FF69B4;"></span>
+                        <span class="sprinkle" style="--x:60%; --y:25%; --color:#E6E6FA;"></span>
+                        <span class="sprinkle" style="--x:40%; --y:55%; --color:#FFD700;"></span>
+                        <span class="sprinkle" style="--x:75%; --y:45%; --color:#98FB98;"></span>
+                        <span class="sprinkle" style="--x:30%; --y:65%; --color:#FFB6C1;"></span>
+                        <span class="sprinkle" style="--x:55%; --y:75%; --color:#DDA0DD;"></span>
+                        <span class="sprinkle" style="--x:80%; --y:60%; --color:#87CEEB;"></span>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="finale-title" id="finale-title">Happy Birthday! 🎉</h2>
+            <p class="finale-message" id="finale-message">
+                <!-- Content loaded from CONFIG.finalMessage -->
+            </p>
+
+            <button class="btn-primary btn-glow" id="last-surprise-btn">
+                One Last Surprise 🎁
+            </button>
+
+            <!-- Reasons You're Special -->
+            <div id="reasons-section" class="reasons-section hidden">
+                <h3 class="reasons-title">Reasons You're Special 💗</h3>
+                <div id="reasons-grid" class="reasons-grid">
+                    <!-- Generated dynamically from CONFIG.reasonsSpecial -->
+                </div>
+            </div>
+
+            <!-- Friendship Certificate -->
+            <div id="certificate" class="certificate hidden">
+                <div class="cert-inner">
+                    <div class="cert-corner cert-tl">✦</div>
+                    <div class="cert-corner cert-tr">✦</div>
+                    <div class="cert-corner cert-bl">✦</div>
+                    <div class="cert-corner cert-br">✦</div>
+                    <h3 class="cert-heading">🏆 Certificate of Friendship 🏆</h3>
+                    <p class="cert-line">This certifies that</p>
+                    <p class="cert-name" id="cert-name"><!-- CONFIG.name --></p>
+                    <p class="cert-line">is officially the most amazing,<br>beautiful, and wonderful best friend<br>in
+                        the entire universe! 🌟</p>
+                    <div class="cert-seal">💗</div>
+                    <p class="cert-date" id="cert-date"></p>
+                    <p class="cert-signed" id="cert-signed">With love, Your Best Friend 💗</p>
+                </div>
+            </div>
+
+            <!-- Hidden message (Easter egg - double-click to find) -->
+            <p class="hidden-msg" title="You found a hidden message! 🌟">
+                You found a secret! You're the best person I know 💗
+            </p>
+
+            <!-- Replay -->
+            <button class="btn-secondary" id="replay-btn">
+                Replay the Magic 🔄
+            </button>
+        </div>
+    </section>
+
+    <!-- ==================== LIGHTBOX MODAL ==================== -->
+    <div id="lightbox" class="lightbox">
+        <button class="lightbox-close" id="lightbox-close">&times;</button>
+        <img id="lightbox-img" src="" alt="Memory photo">
+        <p id="lightbox-caption"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
